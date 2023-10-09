@@ -13,12 +13,12 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun LoaderComponent() {
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         CircularProgressIndicator(
             modifier = Modifier
                 .padding(16.dp)
@@ -28,6 +28,6 @@ fun LoaderComponent() {
 
 @Preview(showBackground = true)
 @Composable
-fun LoaderPreview(){
+fun LoaderPreview() {
     LoaderComponent()
 }

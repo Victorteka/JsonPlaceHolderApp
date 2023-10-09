@@ -54,7 +54,6 @@ fun ErrorScreen(
 fun ErrorScreenPreview() {
     ErrorScreen(
         errorId = R.string.home_error_try_again
-    ){
-
+    ) {
     }
 }

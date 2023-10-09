@@ -1,6 +1,5 @@
 package com.victorteka.jsonplaceholderapp.ui.home
 
-import android.util.Log
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,15 +9,15 @@ import com.victorteka.jsonplaceholderapp.core.repository.PostsRepository
 import com.victorteka.jsonplaceholderapp.util.ErrorType
 import com.victorteka.jsonplaceholderapp.util.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @HiltViewModel
 class PostsViewModel @Inject constructor(
     private val repository: PostsRepository
-): ViewModel() {
+) : ViewModel() {
 
     private val _state = MutableStateFlow(HomeScreenViewState(isLoading = true))
     val state = _state.asStateFlow()
@@ -36,7 +35,7 @@ class PostsViewModel @Inject constructor(
     }
 
     private fun processResult(result: Result<List<Post>>) {
-        when(result){
+        when (result) {
             is Result.Success -> {
                 val posts = result.data
                 _state.value = _state.value.copy(

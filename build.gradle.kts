@@ -5,5 +5,17 @@ plugins {
     alias(libs.plugins.kotlinAndroid) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.hilt) apply false
+    id("org.jlleitschuh.gradle.ktlint") version "11.3.2"
 }
-true // Needed to make the Suppress annotation work for the plugins block
+
+allprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    ktlint {
+        android.set(true)
+        verbose.set(true)
+        filter {
+            exclude { it.file.path.contains("build") }
+            exclude { element -> element.file.path.contains("generated/") }
+        }
+    }
+}

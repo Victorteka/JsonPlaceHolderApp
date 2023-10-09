@@ -13,7 +13,7 @@ import org.junit.runner.Description
 @OptIn(ExperimentalCoroutinesApi::class)
 class TestCoroutineRule(
     private val dispatcher: TestDispatcher = UnconfinedTestDispatcher()
-): TestWatcher() {
+) : TestWatcher() {
 
     override fun starting(description: Description) {
         super.starting(description)

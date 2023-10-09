@@ -5,16 +5,16 @@ import com.victorteka.jsonplaceholderapp.core.repository.PostsRepository
 import com.victorteka.jsonplaceholderapp.data.mappers.toCoreModel
 import com.victorteka.jsonplaceholderapp.util.ErrorType
 import com.victorteka.jsonplaceholderapp.util.Result
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
 import java.io.IOException
 import java.net.HttpURLConnection.HTTP_UNAUTHORIZED
 import javax.inject.Inject
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
 
 class PostRepositoryImpl @Inject constructor(
     private val postsApiService: PostsApiService
-): PostsRepository {
+) : PostsRepository {
 
     override fun getPosts(): Flow<Result<List<Post>>> = flow {
         val response = postsApiService.getPosts()
@@ -25,8 +25,8 @@ class PostRepositoryImpl @Inject constructor(
             emit(Result.Error(errorType))
         }
     }.catch { throwable ->
-        val errorType = when(throwable){
-            is IOException ->ErrorType.IO_CONNECTION
+        val errorType = when (throwable) {
+            is IOException -> ErrorType.IO_CONNECTION
             else -> ErrorType.GENERIC
         }
         emit(Result.Error(errorType))

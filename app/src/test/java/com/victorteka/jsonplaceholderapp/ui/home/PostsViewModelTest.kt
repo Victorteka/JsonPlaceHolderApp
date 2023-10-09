@@ -27,6 +27,7 @@ class PostsViewModelTest {
 
     @MockK
     private lateinit var repository: PostsRepository
+
     @MockK
     val postsApiService = mockk<PostsApiService>(relaxed = true)
 
@@ -34,7 +35,7 @@ class PostsViewModelTest {
 
     @Before
     fun setUp() {
-       MockKAnnotations.init(this)
+        MockKAnnotations.init(this)
         postsViewModel = PostsViewModel(repository)
     }
 

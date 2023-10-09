@@ -20,9 +20,11 @@ fun PostItem(
     modifier: Modifier = Modifier,
     post: Post
 ) {
-    Card(modifier = modifier
-        .fillMaxWidth()
-        .padding(8.dp)) {
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
         Column(
             modifier = Modifier.padding(12.dp)
         ) {

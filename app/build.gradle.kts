@@ -69,7 +69,7 @@ dependencies {
     implementation(libs.retrofit.kotlin.serialization)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
-    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.hilt.navigation.compose)
 

@@ -22,18 +22,18 @@ fun HomeScreen() {
     ) {
         val screenState by viewModel.state.collectAsState()
 
-        if(screenState.isLoading){
+        if (screenState.isLoading) {
             LoaderComponent()
         }
-        if (screenState.error != null){
+        if (screenState.error != null) {
             ErrorScreen(errorId = screenState.error ?: R.string.error_generic) {
                 viewModel.getPosts()
             }
         }
-        if (screenState.posts != null){
+        if (screenState.posts != null) {
             LazyColumn {
                 screenState.posts?.let { posts ->
-                    items(posts){ post ->
+                    items(posts) { post ->
                         PostItem(
                             post = post
                         )
